@@ -7,7 +7,7 @@ export default class ResponseCache {
   async processItem(key, fetchCallback) {
     if (!this.cache[key] || hasTtlExpired(this.cache[key].ttl)) {
       this.cache[key] = {
-        ttl: calculateTimeToLive(),
+        ttl: calculateTimeToLive(this.ttlSeconds),
         item: await fetchCallback(),
       };
     }
@@ -23,9 +23,9 @@ function hasTtlExpired(ttl) {
 }
 
 // returns unix time stamp when current item becomes invalid
-function calculateTimeToLive() {
+function calculateTimeToLive(ttlSeconds) {
   const ttlDateObject = new Date();
-  ttlDateObject.setMinutes(ttlDateObject.getMinutes() + this.ttlSeconds * 60);
+  ttlDateObject.setMinutes(ttlDateObject.getMinutes() + ttlSeconds * 60);
 
   return ttlDateObject.getTime();
 }
