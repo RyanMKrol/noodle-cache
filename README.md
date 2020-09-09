@@ -23,3 +23,8 @@ function fetchData() {
   return responseCache.processItem(requestHash, callApiCallback);
 }
 ```
+
+## Notes
+
+- `processItem` is an async function
+- `processItem` will cache any response, including errors

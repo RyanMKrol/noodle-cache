@@ -6,10 +6,22 @@ export default class ResponseCache {
 
   async processItem(key, fetchCallback) {
     if (!this.cache[key] || hasTtlExpired(this.cache[key].ttl)) {
+      let item;
+
+      try {
+        item = await fetchCallback();
+      } catch (e) {
+        item = e;
+      }
+
       this.cache[key] = {
         ttl: calculateTimeToLive(this.ttlSeconds),
-        item: await fetchCallback(),
+        item,
       };
+    }
+
+    if (this.cache[key].item instanceof Error) {
+      throw this.cache[key].item;
     }
 
     return this.cache[key].item;
