@@ -12,7 +12,6 @@
     "build"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run lint && shx rm -rf build && ./node_modules/.bin/babel src --out-dir build",
     "lint": "eslint src/ --ext .js"
   },
