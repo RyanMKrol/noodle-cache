@@ -4,11 +4,11 @@ export default class ResponseCache {
     this.ttlSeconds = ttlSeconds;
   }
 
-  processItem(key, item) {
+  processItem(key, fetchCallback) {
     if (!this.cache[key] || hasTtlExpired(this.cache[key].ttl)) {
       this.cache[key] = {
         ttl: calculateTimeToLive(),
-        item,
+        item: fetchCallback(),
       };
     }
 
