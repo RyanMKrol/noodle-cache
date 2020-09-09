@@ -25,7 +25,9 @@
     "husky": "^4.2.5",
     "shx": "^0.3.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "core-js": "^3.6.5"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "npm run build"
