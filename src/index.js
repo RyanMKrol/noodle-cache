@@ -1,3 +1,3 @@
-import customFunction from './module';
+import ResponseCache from './module';
 
-export default customFunction;
+export default ResponseCache;
