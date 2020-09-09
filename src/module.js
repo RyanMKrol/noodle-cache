@@ -18,8 +18,7 @@ export default class ResponseCache {
 
 // calculates whether the ttl has expired or not
 function hasTtlExpired(ttl) {
-  const currentUnixTime = Date.now();
-  return ttl > currentUnixTime;
+  return ttl < Date.now();
 }
 
 // returns unix time stamp when current item becomes invalid
