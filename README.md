@@ -1,3 +1,7 @@
+# Deprecated
+
+There was probably never a need for this to be honest, I was in a phase where I wanted to build everything from scratch, so here this is! `node-cache` basically does everything this package does, and much better, so I'll use that in future.
+
 # noodle-cache
 
 ## Overview
